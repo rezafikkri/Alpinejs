@@ -5,28 +5,20 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Belajar Alpine.js</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
   </head>
   <body>
-    <div x-data="{ name: 'Reza Sariful Fikri' }">
-      <div x-data="{ umur: 23 }">
-        <p>Nama: <span x-text="name"></span></p>
-        <p>Umur: <span x-text="umur"></span></p>
-      </div>
+    <div
+      class="container mx-auto w-1/2 text-center mt-10 bg-lime-200 p-10 rounded-xl shadow"
+      x-data="{ nama: 'Reza Sariful Fikri', link: '' }"
+    >
+      <h1
+        class="text-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-400
+        bg-clip-text text-transparent drop-shadow-sm" 
+      >
+        <a href="" x-text="nama"></a>
+      </h1>
     </div>
-
-    <button type="button" x-data="{ label: 'Klik disini' }" x-text="label"></button>
-
-    <div x-data>
-      <ul>
-        <template x-for="nm in $store.mahasiswa.nama">
-          <li x-text="nm"></li>
-        </template>
-      </ul>
-    </div>
-
-    <button type="button" x-data @click="alert('Hay my name is Reza')">Klik saya</button>
-
-    <script src="main.js"></script>
   </body>
 </html>
