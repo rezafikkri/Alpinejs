@@ -9,7 +9,24 @@
   </head>
   <body>
     <div x-data="{ name: 'Reza Sariful Fikri' }">
-      <span x-text="name"></span>
+      <div x-data="{ umur: 23 }">
+        <p>Nama: <span x-text="name"></span></p>
+        <p>Umur: <span x-text="umur"></span></p>
+      </div>
     </div>
+
+    <button type="button" x-data="{ label: 'Klik disini' }" x-text="label"></button>
+
+    <div x-data>
+      <ul>
+        <template x-for="nm in $store.mahasiswa.nama">
+          <li x-text="nm"></li>
+        </template>
+      </ul>
+    </div>
+
+    <button type="button" x-data @click="alert('Hay my name is Reza')">Klik saya</button>
+
+    <script src="main.js"></script>
   </body>
 </html>
