@@ -10,18 +10,27 @@
   </head>
   <body>
     <div
-      class="container mx-auto w-1/2 text-center mt-10 bg-lime-200 p-10 rounded-xl shadow"
+      @log="alert('Data telah terkirim oleh ' + $event.detail.nama)"
+      class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow"
       x-data="{
-        nama: 'Reza Sariful Fikri',
-        link: '<a href=\'https://youtube.com\'>Reza Sariful Fikri</a>'
+        pesan: 'Hallo Reza!',
       }"
     >
-      <h1
-        class="text-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-400
-        bg-clip-text text-transparent drop-shadow-sm" 
+      <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukkan Nama</label>
+      <input
+        @keyup.shift.enter="alert('Data terkirim!')"
+        type="text"
+        id="nama"
+        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      />
+      <button
+        @click="$dispatch('log', { nama: 'Reza' })"
+        class="py-2 px-5 text-white rounded-md bg-slate-500 mt-3"
       >
-        <a href="" x-html="link"></a>
-      </h1>
+        Klik saya
+      </button>
     </div>
+
+    <script src="main.js"></script>
   </body>
 </html>
